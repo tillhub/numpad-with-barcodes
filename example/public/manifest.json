@@ -1,0 +1,8 @@
+{
+  "short_name": "@tillhub/numpad-with-barcodes",
+  "name": "@tillhub/numpad-with-barcodes",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
