@@ -145,7 +145,7 @@ export default class NumPad extends Component {
 }
 
 NumPad.propTypes = {
-  handleChange: PropTypes.func,
+  handleChange: PropTypes.func.isRequired,
   startValue: PropTypes.string,
   disabled: PropTypes.bool,
   withoutInputField: PropTypes.bool,

@@ -3,6 +3,10 @@ import NumPad from '@tillhub/numpad-with-barcodes'
 import mockProducts from './mockProducts'
 
 export default class App extends Component {
+  state = {
+    product: null
+  }
+
   fetchProduct = (barcode) => {
     const result = mockProducts.find(product => product.barcode === barcode)
     return new Promise(resolve => window.setTimeout(() => resolve(result), 1000))
@@ -12,6 +16,7 @@ export default class App extends Component {
     return new Promise(async (resolve, reject) => {
       try {
         const product = await this.fetchProduct(barcode)
+        this.setState({ product })
         if (product.id) {
           return resolve(product)
         } else {
@@ -26,6 +31,9 @@ export default class App extends Component {
 
   }
 
+  renderCurrentStock = () => <div>Current Stock: {this.state.product && this.state.product.stock && this.state.product.stock.qty}</div>
+  renderTotal = () => <div style={{ marginBottom: '20px' }}>OUT OF {this.state.product && this.state.product.order_qty || '0'}</div>
+
   render() {
     return (
       <div>
@@ -33,8 +41,8 @@ export default class App extends Component {
           handleChange={value => console.log(value)}
           decimalSeparator=','
           searchProduct={this.searchProduct}
-          additionalProductInfo={<div>Current Stock: 230</div>}
-          additionalCounterInfo={<div style={{ marginBottom: '20px' }}>OUT OF 50</div>}
+          additionalProductInfo={this.renderCurrentStock()}
+          additionalCounterInfo={this.renderTotal()}
       />
       </div>
     )
