@@ -5,18 +5,16 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
 
-import pkg from './package.json'
-
 export default {
   input: 'src/index.js',
   output: [
     {
-      file: pkg.main,
+      file: 'dist/index.cjs.js',
       format: 'cjs',
       sourcemap: true
     },
     {
-      file: pkg.module,
+      file: 'dist/index.es.js',
       format: 'es',
       sourcemap: true
     }
@@ -28,8 +26,9 @@ export default {
     }),
     url(),
     babel({
+      runtimeHelpers: true,
       exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ]
+      plugins: ['external-helpers', 'transform-runtime']
     }),
     resolve(),
     commonjs()
