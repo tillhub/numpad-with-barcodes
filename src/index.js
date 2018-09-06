@@ -109,16 +109,17 @@ export default class NumPad extends Component {
   }
 
   render() {
-    const { disabled, withoutInputField, decimalSeparator, width, children } = this.props
+    const { disabled, withoutInputField, decimalSeparator, width, additionalProductInfo, additionalCounterInfo } = this.props
     const { input, product } = this.state
 
     return (
       <div className={styles.wrapper} style={{ width }}>
         <div className={styles.productInformationContainer}>
           {product ? (
-            <ProductInformation product={product}>
-              {children}
-            </ProductInformation>
+            <React.Fragment>
+              <ProductInformation product={product} />
+              {additionalProductInfo}
+            </React.Fragment>
           ) : (
             <ProductSearchBox />
           )}
@@ -131,7 +132,7 @@ export default class NumPad extends Component {
           disabled={!product || disabled || withoutInputField}
         />
 
-        {children}
+        {additionalCounterInfo}
 
         <Keypad
           disabled={!product || disabled}
@@ -150,7 +151,8 @@ NumPad.propTypes = {
   withoutInputField: PropTypes.bool,
   decimalSeparator: PropTypes.string,
   width: PropTypes.string,
-  children: PropTypes.node,
+  additionalProductInfo: PropTypes.node,
+  additionalCounterInfo: PropTypes.node,
   searchProduct: PropTypes.func.isRequired
 }
 
@@ -161,5 +163,6 @@ NumPad.defaultProps = {
   withoutInputField: false,
   decimalSeparator: '.',
   width: DEFAULT_WIDTH,
-  children: null
+  additionalProductInfo: null,
+  additionalCounterInfo: null
 }

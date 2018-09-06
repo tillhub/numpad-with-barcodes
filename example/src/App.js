@@ -33,6 +33,8 @@ export default class App extends Component {
           handleChange={value => console.log(value)}
           decimalSeparator=','
           searchProduct={this.searchProduct}
+          additionalProductInfo={<div>Current Stock: 230</div>}
+          additionalCounterInfo={<div style={{ marginBottom: '20px' }}>OUT OF 50</div>}
       />
       </div>
     )
