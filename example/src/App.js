@@ -4,7 +4,8 @@ import mockProducts from './mockProducts'
 
 export default class App extends Component {
   state = {
-    product: null
+    product: null,
+    qty: '0'
   }
 
   handleClick = () => {
@@ -17,22 +18,27 @@ export default class App extends Component {
     return new Promise(resolve => window.setTimeout(() => resolve(result), 1000))
   }
 
-  searchProduct = (barcode) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const product = await this.fetchProduct(barcode)
-        this.setState({ product })
-        if (product.id) {
-          return resolve(product)
-        } else {
-          return reject(null)
-        }
-      } catch (err) {
-        console.log(err)
+  searchProduct = async barcode => {
+    try {
+      const product = await this.fetchProduct(barcode)
 
-        return reject(null)
+      if (!product || !product.id) {
+        return this.setState({ product: null, qty: '0' })
       }
-    })
+
+      // if same product has been scanned increase qty
+      // otherwise start from 1
+      let newQty = '1'
+      if (this.state.product) {
+        if (this.state.product.id === product.id) {
+          newQty = (parseFloat(this.state.qty) + 1).toString()
+        }
+      }
+      this.setState({ product, qty: newQty })
+    } catch (err) {
+      console.log(err)
+      return this.setState({ product: null, qty: '0' })
+    }
   }
 
   renderCurrentStock = () => <div>Current Stock: {this.state.product && this.state.product.stock && this.state.product.stock.qty}</div>
@@ -48,6 +54,7 @@ export default class App extends Component {
           additionalProductInfo={this.renderCurrentStock()}
           additionalCounterInfo={this.renderTotal()}
           product={this.state.product}
+          value={this.state.qty}
         />
         <button onClick={this.handleClick} style={{ marginTop: '20px' }}>Save</button>
       </div>

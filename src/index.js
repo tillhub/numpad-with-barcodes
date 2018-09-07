@@ -15,11 +15,6 @@ const barcodeReader = makeBarcodeReader()
 const DEFAULT_WIDTH = '400px'
 
 export default class NumPad extends Component {
-  state = {
-    input: this.props.startValue || '0',
-    product: this.props.product
-  }
-
   componentDidMount() {
     document
       .querySelector('body')
@@ -36,46 +31,8 @@ export default class NumPad extends Component {
       .removeEventListener('keydown', this.listenerFunc)
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.startValue !== prevProps.startValue) {
-      this.setState({ input: this.props.startValue }) // eslint-disable-line react/no-did-update-set-state
-    }
-
-    if (this.props.product !== prevProps.product) {
-      this.setState({ input: this.props.product }) // eslint-disable-line react/no-did-update-set-state
-    }
-  }
-
   listenerFunc = e =>
-    barcodeReader.handleBarcode(e, this.handleBarcode)
-
-  handleBarcode = async (barcode) => {
-    const { searchProduct } = this.props
-    let product
-
-    try {
-      product = await searchProduct(barcode)
-    } catch (err) {
-      console.log(err)
-      return null
-    }
-
-    let newQty = '1'
-
-    // if same product has been scanned increase qty
-    // otherwise start from 1
-    if (this.state.product) {
-      if (product) {
-        if (this.state.product.id === product.id) {
-          newQty = (parseFloat(this.state.input) + 1).toString()
-        }
-      }
-    }
-
-    this.setState({ product, input: newQty }, () => {
-      this.setDisplayText(this.state.input)
-    })
-  }
+    barcodeReader.handleBarcode(e, this.props.searchProduct)
 
   validate(string) {
     if (string === '') return true
@@ -99,30 +56,36 @@ export default class NumPad extends Component {
 
     if (!this.validate(displayText)) return null
 
-    return this.setState({ input: displayText }, () => {
-      this.props.handleChange(this.state.input)
-    })
+    this.props.handleChange(displayText)
   }
 
   handleKeypadPress = key => {
-    const { input } = this.state
+    const { value } = this.props
 
     let text
 
     if (key === 'back') {
-      text = removeLastCharacter(input && input.toString())
+      text = removeLastCharacter(value && value.toString())
     } else if (key === 'C') {
       text = '0'
     } else {
-      text = input ? `${input.toString()}${key}` : key
+      text = value ? `${value.toString()}${key}` : key
     }
 
     this.setDisplayText(text)
   }
 
   render() {
-    const { disabled, withoutInputField, decimalSeparator, width, additionalProductInfo, additionalCounterInfo, product } = this.props
-    const { input } = this.state
+    const {
+      disabled,
+      withoutInputField,
+      decimalSeparator,
+      width,
+      additionalProductInfo,
+      additionalCounterInfo,
+      product,
+      value
+    } = this.props
 
     return (
       <div className={styles.wrapper} style={{ width }}>
@@ -139,7 +102,7 @@ export default class NumPad extends Component {
 
         <input
           className={classnames(styles.inputField)}
-          value={input || '0'}
+          value={value || '0'}
           onChange={e => this.setDisplayText(e.target.value)}
           disabled={!product || disabled || withoutInputField}
         />
@@ -158,7 +121,7 @@ export default class NumPad extends Component {
 
 NumPad.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  startValue: PropTypes.string,
+  value: PropTypes.string,
   disabled: PropTypes.bool,
   withoutInputField: PropTypes.bool,
   decimalSeparator: PropTypes.string,
@@ -171,7 +134,7 @@ NumPad.propTypes = {
 
 NumPad.defaultProps = {
   handleChange: () => { },
-  startValue: '0',
+  value: '0',
   disabled: false,
   withoutInputField: false,
   decimalSeparator: '.',
