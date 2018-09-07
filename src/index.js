@@ -171,7 +171,7 @@ NumPad.propTypes = {
 
 NumPad.defaultProps = {
   handleChange: () => { },
-  startValue: null,
+  startValue: '0',
   disabled: false,
   withoutInputField: false,
   decimalSeparator: '.',
