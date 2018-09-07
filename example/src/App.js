@@ -18,7 +18,7 @@ export default class App extends Component {
     return new Promise(resolve => window.setTimeout(() => resolve(result), 1000))
   }
 
-  searchProduct = async barcode => {
+  handleBarcode = async barcode => {
     try {
       const product = await this.fetchProduct(barcode)
 
@@ -41,20 +41,23 @@ export default class App extends Component {
     }
   }
 
-  renderCurrentStock = () => <div>Current Stock: {this.state.product && this.state.product.stock && this.state.product.stock.qty}</div>
-  renderTotal = () => <div style={{ marginBottom: '20px' }}>OUT OF {(this.state.product && this.state.product.order_qty) || '0'}</div>
+  renderCurrentStock = () =>
+    <div>Current Stock: {this.state.product && this.state.product.stock && this.state.product.stock.qty}</div>
+
+  renderTotal = () =>
+    <div style={{ marginBottom: '20px' }}>OUT OF {(this.state.product && this.state.product.order_qty) || '0'}</div>
 
   render() {
     return (
       <div>
         <NumPad
-          handleChange={value => console.log(value)}
+          handleChange={value => this.setState({ qty: value })}
           decimalSeparator=','
-          searchProduct={this.searchProduct}
+          handleBarcode={this.handleBarcode}
           additionalProductInfo={this.renderCurrentStock()}
           additionalCounterInfo={this.renderTotal()}
           product={this.state.product}
-          value={this.state.qty}
+          value={this.state.qty || '0'} // default to '0' if you never want to show an empty input field
         />
         <button onClick={this.handleClick} style={{ marginTop: '20px' }}>Save</button>
       </div>

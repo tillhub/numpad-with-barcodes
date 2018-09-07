@@ -102,7 +102,7 @@ export default class NumPad extends Component {
 
         <input
           className={classnames(styles.inputField)}
-          value={value || '0'}
+          value={value}
           onChange={e => this.setDisplayText(e.target.value)}
           disabled={!product || disabled || withoutInputField}
         />
@@ -134,7 +134,7 @@ NumPad.propTypes = {
 
 NumPad.defaultProps = {
   handleChange: () => { },
-  value: '0',
+  value: null,
   disabled: false,
   withoutInputField: false,
   decimalSeparator: '.',
