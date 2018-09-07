@@ -8,7 +8,7 @@ function ProductInformation({ product }) {
       <div className={styles.barcode}>
         {product.barcode || 'NO BARCODE'}
       </div>
-      <div className={styles.productName}>{product.name || '(no name)'}</div>
+      <div className={styles.productName}>{product.name || product.product_name || '(no name)'}</div>
     </React.Fragment>
   )
 }
