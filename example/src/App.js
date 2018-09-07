@@ -7,6 +7,11 @@ export default class App extends Component {
     product: null
   }
 
+  handleClick = () => {
+    // e.g. save something to API and clear product
+    this.setState({ product: null })
+  }
+
   fetchProduct = (barcode) => {
     const result = mockProducts.find(product => product.barcode === barcode)
     return new Promise(resolve => window.setTimeout(() => resolve(result), 1000))
@@ -28,11 +33,10 @@ export default class App extends Component {
         return reject(null)
       }
     })
-
   }
 
   renderCurrentStock = () => <div>Current Stock: {this.state.product && this.state.product.stock && this.state.product.stock.qty}</div>
-  renderTotal = () => <div style={{ marginBottom: '20px' }}>OUT OF {this.state.product && this.state.product.order_qty || '0'}</div>
+  renderTotal = () => <div style={{ marginBottom: '20px' }}>OUT OF {(this.state.product && this.state.product.order_qty) || '0'}</div>
 
   render() {
     return (
@@ -43,7 +47,9 @@ export default class App extends Component {
           searchProduct={this.searchProduct}
           additionalProductInfo={this.renderCurrentStock()}
           additionalCounterInfo={this.renderTotal()}
-      />
+          product={this.state.product}
+        />
+        <button onClick={this.handleClick} style={{ marginTop: '20px' }}>Save</button>
       </div>
     )
   }

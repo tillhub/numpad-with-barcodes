@@ -17,7 +17,7 @@ const DEFAULT_WIDTH = '400px'
 export default class NumPad extends Component {
   state = {
     input: this.props.startValue || '0',
-    product: null
+    product: this.props.product
   }
 
   componentDidMount() {
@@ -40,6 +40,10 @@ export default class NumPad extends Component {
     if (this.props.startValue !== prevProps.startValue) {
       this.setState({ input: this.props.startValue }) // eslint-disable-line react/no-did-update-set-state
     }
+
+    if (this.props.product !== prevProps.product) {
+      this.setState({ input: this.props.product }) // eslint-disable-line react/no-did-update-set-state
+    }
   }
 
   listenerFunc = e =>
@@ -47,7 +51,15 @@ export default class NumPad extends Component {
 
   handleBarcode = async (barcode) => {
     const { searchProduct } = this.props
-    const product = await searchProduct(barcode)
+    let product
+
+    try {
+      product = await searchProduct(barcode)
+    } catch (err) {
+      console.log(err)
+      return null
+    }
+
     let newQty = '1'
 
     // if same product has been scanned increase qty
@@ -109,8 +121,8 @@ export default class NumPad extends Component {
   }
 
   render() {
-    const { disabled, withoutInputField, decimalSeparator, width, additionalProductInfo, additionalCounterInfo } = this.props
-    const { input, product } = this.state
+    const { disabled, withoutInputField, decimalSeparator, width, additionalProductInfo, additionalCounterInfo, product } = this.props
+    const { input } = this.state
 
     return (
       <div className={styles.wrapper} style={{ width }}>
@@ -153,7 +165,8 @@ NumPad.propTypes = {
   width: PropTypes.string,
   additionalProductInfo: PropTypes.node,
   additionalCounterInfo: PropTypes.node,
-  searchProduct: PropTypes.func.isRequired
+  searchProduct: PropTypes.func.isRequired,
+  product: PropTypes.object
 }
 
 NumPad.defaultProps = {
@@ -164,5 +177,6 @@ NumPad.defaultProps = {
   decimalSeparator: '.',
   width: DEFAULT_WIDTH,
   additionalProductInfo: null,
-  additionalCounterInfo: null
+  additionalCounterInfo: null,
+  product: null
 }

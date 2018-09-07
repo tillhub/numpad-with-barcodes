@@ -1,5 +1,4 @@
-# @tillhub/numpad-with-barcodes-with-barcodes
-
+# @tillhub/numpad-with-barcodes
 > Numpad that detects input from barcode scanners
 
 [![NPM](https://img.shields.io/npm/v/@tillhub/numpad-with-barcodes.svg)](https://www.npmjs.com/package/@tillhub/numpad-with-barcodes) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
