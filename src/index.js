@@ -32,7 +32,7 @@ export default class NumPad extends Component {
   }
 
   listenerFunc = e =>
-    barcodeReader.handleBarcode(e, this.props.searchProduct)
+    barcodeReader.handleBarcode(e, this.props.handleBarcode)
 
   validate(string) {
     if (string === '') return true
@@ -128,7 +128,7 @@ NumPad.propTypes = {
   width: PropTypes.string,
   additionalProductInfo: PropTypes.node,
   additionalCounterInfo: PropTypes.node,
-  searchProduct: PropTypes.func.isRequired,
+  handleBarcode: PropTypes.func.isRequired,
   product: PropTypes.object
 }
 
