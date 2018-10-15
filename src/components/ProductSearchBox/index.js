@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { IconButton } from '@material-ui/core'
+import IconSearch from '@material-ui/icons/Search'
+import IconCancel from '@material-ui/icons/Cancel'
+import Tooltip from '@material-ui/core/Tooltip'
+import Search from './SearchProduct'
 import styled from 'styled-components'
+import Scan from './Scan'
 
-const StyledProductSearch = styled.div`
-  background: green;
-  width: 100%;
-  text-align: center;
-  line-height: 100px;
+const StyledContainer = styled.div`
   height: 100px;
+  width: 100%;
+  position: relative;
+  line-height: 100px;
   font-size: 20px;
+  background: green;
+  text-align: center;
   border-radius: 4px;
-`
-
-const StyledProductSearchBlink = styled(StyledProductSearch)`
-  animation: blinker 3s linear infinite;
+  animation: ${({ isSearch }) =>
+    isSearch ? 'unset' : 'blinker 3s linear infinite'};
 
   @keyframes blinker {
     50% {
@@ -21,10 +27,79 @@ const StyledProductSearchBlink = styled(StyledProductSearch)`
   }
 `
 
-function ProductSearchBox() {
-  return (
-    <StyledProductSearchBlink>Please start scanning</StyledProductSearchBlink>
-  )
+const StyledProductSuggestionToggle = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-right: 10px;
+`
+
+class ProductSearchBox extends Component {
+  state = {
+    search: false
+  }
+
+  render() {
+    return (
+      <StyledContainer isSearch={this.state.search}>
+        <div style={{ userSelect: 'none' }}>
+          {this.state.search ? (
+            <Search
+              searchText={this.props.searchText}
+              handleProduct={productId => {
+                this.props.handleSearchProduct(productId)
+                this.setState({ search: false })
+              }}
+            />
+          ) : (
+            <Scan scanText={this.props.scanText} />
+          )}
+        </div>
+        {!this.props.handleSearchProduct ? null : (
+          <StyledProductSuggestionToggle>
+            {!this.state.search ? (
+              <Tooltip
+                // title={formatMessage({
+                //   id: 'pages.dispositions.tooltips.search'
+                // })}
+                title={this.props.searchText}
+              >
+                <IconButton
+                  onClick={() => {
+                    this.setState({ search: true })
+                  }}
+                >
+                  <IconSearch style={{ fontSize: 36 }} />
+                </IconButton>
+              </Tooltip>
+            ) : (
+              <IconButton
+                onClick={() => {
+                  this.setState({ search: false })
+                }}
+              >
+                <IconCancel style={{ fontSize: 36 }} />
+              </IconButton>
+            )}
+          </StyledProductSuggestionToggle>
+        )}
+      </StyledContainer>
+    )
+  }
+}
+
+ProductSearchBox.propTypes = {
+  handleSearchProduct: PropTypes.func,
+  searchText: PropTypes.string.isRequired,
+  scanText: PropTypes.string.isRequired
+}
+
+ProductSearchBox.defaultProps = {
+  handleSearchProduct: () => {}
 }
 
 export default ProductSearchBox
