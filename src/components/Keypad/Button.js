@@ -1,12 +1,43 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
-import styles from '../../styles.css'
+import styled, { css } from 'styled-components'
+
+const ButtonDisabled = css`
+  color: grey;
+  cursor: auto;
+
+  img {
+    opacity: 0.4;
+  }
+`
+const ButtonActive = css`
+  &:hover {
+    background-color: rgba(238, 159, 89, 0.5);
+  }
+
+  &:active {
+    background-color: rgb(238, 159, 89);
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+  }
+`
+
+const StyledButton = styled.span`
+  background: lightgrey;
+  text-align: center;
+  border-radius: 4px;
+  line-height: 40px;
+  display: table-cell;
+  vertical-align: middle;
+  cursor: pointer;
+
+  ${({ disabled }) => (disabled ? ButtonDisabled : ButtonActive)};
+`
 
 export default function Button({
   text,
   clickHandler,
-  klass,
+  className,
   children,
   disabled
 }) {
@@ -16,20 +47,24 @@ export default function Button({
   }
 
   return (
-    <span className={classnames(styles.button, klass, disabled && styles.disabled)} disabled={disabled} onClick={handleClick}>
+    <StyledButton
+      className={className}
+      disabled={disabled}
+      onClick={handleClick}
+    >
       {children}
-    </span>
+    </StyledButton>
   )
 }
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
-  klass: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool.isRequired
 }
 
 Button.defaultProps = {
-  klass: null
+  className: null
 }

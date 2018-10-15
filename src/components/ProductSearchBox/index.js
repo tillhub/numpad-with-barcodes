@@ -1,18 +1,30 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
-import classnames from 'classnames'
-import styles from '../../styles.css'
+import styled from 'styled-components'
+
+const StyledProductSearch = styled.div`
+  background: green;
+  width: 100%;
+  text-align: center;
+  line-height: 100px;
+  height: 100px;
+  font-size: 20px;
+  border-radius: 4px;
+`
+
+const StyledProductSearchBlink = styled(StyledProductSearch)`
+  animation: blinker 3s linear infinite;
+
+  @keyframes blinker {
+    50% {
+      opacity: 0.5;
+    }
+  }
+`
 
 function ProductSearchBox() {
   return (
-    <div className={classnames(styles.productSearchContainer, styles.blink)}>
-      Please start scanning
-    </div>
+    <StyledProductSearchBlink>Please start scanning</StyledProductSearchBlink>
   )
-}
-
-ProductSearchBox.propTypes = {
-  //
 }
 
 export default ProductSearchBox

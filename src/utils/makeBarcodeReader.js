@@ -1,11 +1,4 @@
-const specials = [
-  'Alt',
-  'Shift',
-  'Meta',
-  'MetaShift',
-  'Control',
-  'Dead'
-]
+const specials = ['Alt', 'Shift', 'Meta', 'MetaShift', 'Control', 'Dead']
 
 function setCharAt(str, index, chr) {
   if (index > str.length - 1) return str

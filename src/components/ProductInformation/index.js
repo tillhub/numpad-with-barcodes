@@ -1,14 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from '../../styles.css'
+import styled from 'styled-components'
+// import styles from '../../styles.css'
+
+const StyledBarcode = styled.div`
+  font-size: 40px;
+  margin-bottom: 20px;
+`
+
+const StyledProductName = styled.div`
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+`
 
 function ProductInformation({ product }) {
   return (
     <React.Fragment>
-      <div className={styles.barcode}>
-        {product.barcode || 'NO BARCODE'}
-      </div>
-      <div className={styles.productName}>{product.name || product.product_name || '(no name)'}</div>
+      <StyledBarcode>{product.barcode || 'NO BARCODE'}</StyledBarcode>
+      <StyledProductName>
+        {product.name || product.product_name || '(no name)'}
+      </StyledProductName>
     </React.Fragment>
   )
 }
