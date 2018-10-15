@@ -104,7 +104,9 @@ export default class NumPad extends Component {
       additionalProductInfo,
       additionalCounterInfo,
       product,
-      value
+      value,
+      searchText,
+      scanText
     } = this.props
     return (
       <StyledWrapper width={width}>
@@ -115,7 +117,7 @@ export default class NumPad extends Component {
               {additionalProductInfo}
             </React.Fragment>
           ) : (
-            <ProductSearchBox />
+            <ProductSearchBox searchText={searchText} scanText={scanText} />
           )}
         </StyledProductInformationContainer>
 
@@ -144,6 +146,8 @@ NumPad.propTypes = {
   withoutInputField: PropTypes.bool,
   decimalSeparator: PropTypes.string,
   width: PropTypes.string,
+  searchText: PropTypes.string,
+  scanText: PropTypes.string,
   additionalProductInfo: PropTypes.node,
   additionalCounterInfo: PropTypes.node,
   handleBarcode: PropTypes.func.isRequired,
@@ -159,5 +163,7 @@ NumPad.defaultProps = {
   width: DEFAULT_WIDTH,
   additionalProductInfo: null,
   additionalCounterInfo: null,
-  product: null
+  product: null,
+  searchText: 'Search',
+  scanText: 'Please start scanning...'
 }
