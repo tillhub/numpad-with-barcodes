@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Keypad from './components/Keypad'
+import Keypad from '@tillhub/numpad'
 import makeBarcodeReader from './utils/makeBarcodeReader'
-import { removeLastCharacter, removeLeadingZero } from './utils/strings'
 import ProductInformation from './components/ProductInformation'
 import ProductSearchBox from './components/ProductSearchBox'
 
@@ -21,15 +20,6 @@ const StyledProductInformationContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-`
-
-const StyledInput = styled.input`
-  padding: 30px 0;
-  text-align: center;
-  font-size: 80px;
-  border: none;
-  width: 100%;
-  margin-bottom: 30px;
 `
 
 const barcodeReader = makeBarcodeReader()
@@ -54,47 +44,6 @@ export default class NumPad extends Component {
 
   listenerFunc = e => barcodeReader.handleBarcode(e, this.props.handleBarcode)
 
-  validate(string) {
-    if (string === '') return true
-
-    // regex matches single 0, single minus,
-    // positive/negative decimal numbers (up to 2 digits after separator),
-    // empty string
-    let regex
-    if (this.props.decimalSeparator === ',') {
-      regex = /^$|^-?(0|[1-9][0-9]*)(,?|,[0-9][0-9]?)$|^-$/g
-    } else {
-      regex = /^$|^-?(0|[1-9][0-9]*)(\.?|\.[0-9][0-9]?)$|^-$/g
-    }
-
-    return regex.test(string)
-  }
-
-  // sets internal state for controlled input and executes user's changeHandler
-  setDisplayText = text => {
-    const displayText = removeLeadingZero(text)
-
-    if (!this.validate(displayText)) return null
-
-    this.props.handleChange(displayText)
-  }
-
-  handleKeypadPress = key => {
-    const { value } = this.props
-
-    let text
-
-    if (key === 'back') {
-      text = removeLastCharacter(value && value.toString())
-    } else if (key === 'C') {
-      text = '0'
-    } else {
-      text = value ? `${value.toString()}${key}` : key
-    }
-
-    this.setDisplayText(text)
-  }
-
   render() {
     const {
       disabled,
@@ -106,7 +55,8 @@ export default class NumPad extends Component {
       product,
       value,
       searchText,
-      scanText
+      scanText,
+      handleChange
     } = this.props
     return (
       <StyledWrapper width={width}>
@@ -121,19 +71,15 @@ export default class NumPad extends Component {
           )}
         </StyledProductInformationContainer>
 
-        <StyledInput
-          value={value}
-          onChange={e => this.setDisplayText(e.target.value)}
-          disabled={!product || disabled || withoutInputField}
-        />
-
-        {additionalCounterInfo}
-
         <Keypad
+          startValue={value}
           disabled={!product || disabled}
-          clickHandler={this.handleKeypadPress}
           decimalSeparator={decimalSeparator}
-        />
+          withoutInputField={withoutInputField}
+          handleChange={handleChange}
+        >
+          {additionalCounterInfo}
+        </Keypad>
       </StyledWrapper>
     )
   }

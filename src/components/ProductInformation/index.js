@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-// import styles from '../../styles.css'
 
 const StyledBarcode = styled.div`
   font-size: 40px;
@@ -16,12 +15,12 @@ const StyledProductName = styled.div`
 
 function ProductInformation({ product }) {
   return (
-    <React.Fragment>
+    <Fragment>
       <StyledBarcode>{product.barcode || 'NO BARCODE'}</StyledBarcode>
       <StyledProductName>
         {product.name || product.product_name || '(no name)'}
       </StyledProductName>
-    </React.Fragment>
+    </Fragment>
   )
 }
 

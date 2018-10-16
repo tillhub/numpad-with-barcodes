@@ -226,25 +226,8 @@ class ProductSearch extends React.Component {
 
 ProductSearch.propTypes = {
   classes: PropTypes.object.isRequired,
-  searchProducts: PropTypes.func,
+  searchProducts: PropTypes.func.isRequired,
   handleProduct: PropTypes.func.isRequired
-}
-
-ProductSearch.defaultProps = {
-  searchProducts: () =>
-    Promise.resolve({
-      results: {
-        starts_with: [
-          {
-            id: 'asdf',
-            label: 'asdf',
-            name: 'asdf',
-            barcode: 'asdf',
-            custom_id: 'asdf'
-          }
-        ]
-      }
-    })
 }
 
 export default withStyles(styles)(ProductSearch)
