@@ -1,7 +1,7 @@
 {
   "name": "@tillhub/numpad-with-barcodes",
   "private": false,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Numpad that detects input from barcode scanners",
   "author": "qtotuan",
   "license": "MIT",
