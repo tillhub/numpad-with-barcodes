@@ -176,7 +176,7 @@ class ProductSearch extends React.Component {
           // placeholder={intl.formatMessage({
           //   id: 'pages.dispositions.tooltips.search'
           // })}
-          placeholder="Search"
+          placeholder={this.props.searchText}
           {...other}
         />
       </StyledFormControl>
@@ -227,7 +227,8 @@ class ProductSearch extends React.Component {
 ProductSearch.propTypes = {
   classes: PropTypes.object.isRequired,
   searchProducts: PropTypes.func.isRequired,
-  handleProduct: PropTypes.func.isRequired
+  handleProduct: PropTypes.func.isRequired,
+  searchText: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(ProductSearch)
