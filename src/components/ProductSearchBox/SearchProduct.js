@@ -9,7 +9,7 @@ import Input from '@material-ui/core/Input'
 import FormControl from '@material-ui/core/FormControl'
 import Paper from '@material-ui/core/Paper'
 import MenuItem from '@material-ui/core/MenuItem'
-import { grey } from '@material-ui/core/colors'
+import grey from '@material-ui/core/colors/grey'
 import styled from 'styled-components'
 // import createSitemapSuggestions from '../../i18n/sitemap-suggestions'
 
@@ -151,10 +151,10 @@ class ProductSearch extends React.Component {
                     {part.text}
                   </strong>
                 ) : (
-                  <span key={String(index)} style={{ fontWeight: 300 }}>
-                    {part.text}
-                  </span>
-                )
+                    <span key={String(index)} style={{ fontWeight: 300 }}>
+                      {part.text}
+                    </span>
+                  )
             )}
           </div>
         </MenuItem>
