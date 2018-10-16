@@ -6,7 +6,7 @@
   "author": "qtotuan",
   "license": "MIT",
   "repository": "tillhub/numpad-with-barcodes",
-  "main": "dist/index.es.js",
+  "main": "dist/index.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -14,8 +14,8 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "build": "rimraf dist && rollup -c",
-    "start": "rollup -c -w",
+    "build": "rimraf dist && parcel build src/index.js",
+    "start": "parcel index.js",
     "prepare": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build",
@@ -64,6 +64,7 @@
     "eslint-plugin-standard": "^3.1.0",
     "gh-pages": "^1.2.0",
     "just-debounce-it": "^1.1.0",
+    "parcel": "^1.10.3",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.14.3",
     "prettier-eslint": "^8.8.2",
