@@ -39,7 +39,7 @@
     "@storybook/addon-links": "^4.0.0-alpha.24",
     "@storybook/addons": "^4.0.0-alpha.24",
     "@storybook/react": "^4.0.0-alpha.24",
-    "@tillhub/numpad": "^1.1.4",
+    "@tillhub/numpad": "^2.1.4",
     "autosuggest-highlight": "^3.1.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
@@ -85,7 +85,8 @@
     "rollup-plugin-url": "^1.4.0",
     "semantic-release": "^15.9.17",
     "styled-components": "^3.4.10",
-    "validate-commit-msg": "^2.14.0"
+    "validate-commit-msg": "^2.14.0",
+    "babel-loader": "^7.1.5"
   },
   "files": [
     "dist",
