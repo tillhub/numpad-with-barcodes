@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.9...v1.0.10) (2018-10-17)
+
+
+### Bug Fixes
+
+* **project:** format changes to force release ([0278014](https://github.com/tillhub/numpad-with-barcodes/commit/0278014))
+
 # 1.0.0 (2018-10-17)
 
 
