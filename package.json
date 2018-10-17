@@ -20,6 +20,7 @@
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build",
     "commit": "git-cz",
+    "semantic-release": "semantic-release",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook"
   },
