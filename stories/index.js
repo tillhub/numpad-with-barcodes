@@ -1,5 +1,5 @@
 import React from 'react'
-import Numpad from '../src/'
+import Numpad from '../src'
 
 import { storiesOf } from '@storybook/react'
 
