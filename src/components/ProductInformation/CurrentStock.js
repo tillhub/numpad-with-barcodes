@@ -14,8 +14,7 @@ const StyledCurrentStock = styled.div`
 function CurrentStock({ stock, stockText }) {
   return (
     <StyledCurrentStock>
-      {stockText}
-      <span>: {stock || '0'}</span>
+      {stockText}: {stock || '0'}
     </StyledCurrentStock>
   )
 }

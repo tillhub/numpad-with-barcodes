@@ -14,7 +14,7 @@ function ProductInformation({ product, orderedQty, text }) {
         stockText={text.stock}
         stock={product && product.stock && product.stock.qty}
       />
-      <OrderedQty orderedQtyTex={text.orderedQty} qty={orderedQty} />
+      <OrderedQty orderedQtyText={text.orderedQty} qty={orderedQty} />
     </Fragment>
   )
 }

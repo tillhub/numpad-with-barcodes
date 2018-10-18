@@ -14,8 +14,7 @@ const StyledOrderedQty = styled.div`
 function OrderedQty({ qty, orderedQtyText }) {
   return (
     <StyledOrderedQty>
-      {orderedQtyText}
-      <span>: {qty || '---'}</span>
+      {orderedQtyText}: {qty || '---'}
     </StyledOrderedQty>
   )
 }
