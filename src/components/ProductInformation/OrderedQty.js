@@ -22,7 +22,7 @@ function OrderedQty({ qty, orderedQtyText }) {
 
 OrderedQty.propTypes = {
   qty: PropTypes.number,
-  orderedQtyText: PropTypes.text.isRequired
+  orderedQtyText: PropTypes.string.isRequired
 }
 
 OrderedQty.defaultProps = {
