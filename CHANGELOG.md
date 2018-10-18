@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.13...v1.0.14) (2018-10-18)
+
+
+### Bug Fixes
+
+* **search product:** fix styles and remove commented code ([12d70ea](https://github.com/tillhub/numpad-with-barcodes/commit/12d70ea))
+
 ## [1.0.13](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.12...v1.0.13) (2018-10-18)
 
 
