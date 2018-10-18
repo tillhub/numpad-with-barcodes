@@ -10,7 +10,6 @@ import FormControl from '@material-ui/core/FormControl'
 import Paper from '@material-ui/core/Paper'
 import MenuItem from '@material-ui/core/MenuItem'
 import { grey } from '@material-ui/core/colors'
-// import createSitemapSuggestions from '../../i18n/sitemap-suggestions'
 
 const styles = {
   container: {
@@ -41,7 +40,8 @@ const styles = {
     margin: '5px',
     border: 0,
     padding: 'unset',
-    background: 'transparent'
+    background: 'transparent',
+    height: '6rem'
   }
 }
 
@@ -51,10 +51,6 @@ class ProductSearch extends React.Component {
     value: ''
   }
 
-  // componentDidMount() {
-  //   this.sitemapSuggestions = createSitemapSuggestions(this.props.intl)
-  // }
-
   getSuggestionValue(suggestion) {
     return suggestion.label
   }
@@ -63,13 +59,6 @@ class ProductSearch extends React.Component {
     this.setState({ value: '', suggestions: [] })
     this.props.handleProduct(suggestion)
   }
-  // getSectionSuggestions (section) {
-  //   const sections = ['Navigation']
-  //   // this has no effect until we actually decorate API responses with a type
-  //   // it can be handled in many other ways and serves as a placeholder
-  //   if (section.type === 'product') sections.push('Product')
-  //   return sections
-  // }
 
   loadSuggestions = value => {
     let matchedSuggestions = []
@@ -159,7 +148,7 @@ class ProductSearch extends React.Component {
   }
 
   renderInput = inputProps => {
-    const { classes } = this.props
+    const { classes, searchText } = this.props
     const { ...other } = inputProps
 
     return (
@@ -170,7 +159,7 @@ class ProductSearch extends React.Component {
           autoComplete="off"
           className={classes.input}
           disableUnderline
-          placeholder={this.props.searchText}
+          placeholder={searchText}
           {...other}
         />
       </FormControl>
