@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.1...v1.1.2) (2018-10-18)
+
+
+### Bug Fixes
+
+* **props:** add product current item prop text ([f4ce51b](https://github.com/tillhub/numpad-with-barcodes/commit/f4ce51b))
+
 ## [1.1.1](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.0...v1.1.1) (2018-10-18)
 
 
