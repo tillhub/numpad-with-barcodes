@@ -1,32 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
 
-const styles = {
-  container: {
-    margin: '30px',
-    textAlign: 'center'
-  },
-  barcode: {
-    fontSize: '40px'
-  },
-  title: {
-    color: 'grey'
-  }
-}
+const StyledContainer = styled.div`
+  margin: 30px;
+  text-align: center;
+`
 
-function EANBox({ product, classes }) {
+const StyledTitle = styled.div`
+  color: grey;
+`
+
+const StyledBarcode = styled.div`
+  font-size: 40px;
+`
+
+function EANBox({ product }) {
   return (
-    <div className={classes.container}>
-      <div className={classes.title}>product</div>
-      <div className={classes.barcode}>{product.barcode || 'NO BARCODE'}</div>
-    </div>
+    <StyledContainer>
+      <StyledTitle>product</StyledTitle>
+      <StyledBarcode>{product.barcode || 'NO BARCODE'}</StyledBarcode>
+    </StyledContainer>
   )
 }
 
 EANBox.propTypes = {
-  product: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired
+  product: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(EANBox)
+export default EANBox

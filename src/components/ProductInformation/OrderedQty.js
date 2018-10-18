@@ -1,34 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
 
-const styles = {
-  orderedQty: {
-    textAlign: 'center',
-    fontSize: '18px',
-    marginBottom: '20px',
-    color: 'grey',
-    display: 'flex',
-    justifyContent: 'center'
-  }
-}
+const StyledOrderedQty = styled.div`
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: grey;
+  display: flex;
+  justify-content: center;
+`
 
-function OrderedQty({ qty, classes }) {
+function OrderedQty({ qty, orderedQtyText }) {
   return (
-    <div className={classes.orderedQty}>
-      orderedQty
+    <StyledOrderedQty>
+      {orderedQtyText}
       <span>: {qty || '---'}</span>
-    </div>
+    </StyledOrderedQty>
   )
 }
 
 OrderedQty.propTypes = {
-  classes: PropTypes.object.isRequired,
-  qty: PropTypes.number
+  qty: PropTypes.number,
+  orderedQtyText: PropTypes.text.isRequired
 }
 
 OrderedQty.defaultProps = {
   qty: null
 }
 
-export default withStyles(styles)(OrderedQty)
+export default OrderedQty

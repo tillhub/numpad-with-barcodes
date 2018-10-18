@@ -1,34 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
 
-const styles = {
-  currentStock: {
-    textAlign: 'center',
-    fontSize: '18px',
-    marginBottom: '20px',
-    color: 'grey',
-    display: 'flex',
-    justifyContent: 'center'
-  }
-}
+const StyledCurrentStock = styled.div`
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: grey;
+  display: flex;
+  justify-content: center;
+`
 
-function CurrentStock({ stock, classes }) {
+function CurrentStock({ stock, stockText }) {
   return (
-    <div className={classes.currentStock}>
-      currentStock
+    <StyledCurrentStock>
+      {stockText}
       <span>: {stock || '0'}</span>
-    </div>
+    </StyledCurrentStock>
   )
 }
 
 CurrentStock.propTypes = {
-  classes: PropTypes.object.isRequired,
-  stock: PropTypes.number
+  stock: PropTypes.number,
+  stockText: PropTypes.string.isRequired
 }
 
 CurrentStock.defaultProps = {
   stock: null
 }
 
-export default withStyles(styles)(CurrentStock)
+export default CurrentStock

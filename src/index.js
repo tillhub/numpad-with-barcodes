@@ -54,8 +54,7 @@ export default class NumPad extends Component {
       product,
       pickedQty,
       orderedQty,
-      searchText,
-      scanText,
+      text,
       handleChange,
       handleSelectProduct,
       searchProduct
@@ -65,13 +64,16 @@ export default class NumPad extends Component {
         <StyledProductInformationContainer>
           {product ? (
             <React.Fragment>
-              <ProductInformation product={product} orderedQty={orderedQty} />
+              <ProductInformation
+                product={product}
+                orderedQty={orderedQty}
+                text={text}
+              />
               {additionalProductInfo}
             </React.Fragment>
           ) : (
             <ProductSearchBox
-              searchText={searchText}
-              scanText={scanText}
+              text={text}
               handleSelectProduct={handleSelectProduct}
               searchProduct={searchProduct}
             />
@@ -100,8 +102,7 @@ NumPad.propTypes = {
   withoutInputField: PropTypes.bool,
   decimalSeparator: PropTypes.string,
   width: PropTypes.string,
-  searchText: PropTypes.string,
-  scanText: PropTypes.string,
+  text: PropTypes.object,
   additionalProductInfo: PropTypes.node,
   additionalCounterInfo: PropTypes.node,
   handleBarcode: PropTypes.func.isRequired,
@@ -121,6 +122,10 @@ NumPad.defaultProps = {
   additionalProductInfo: null,
   additionalCounterInfo: null,
   product: null,
-  searchText: 'Search',
-  scanText: 'Please start scanning...'
+  text: {
+    search: 'Search',
+    scan: 'Please start scanning...',
+    orderedQty: 'Ordered Qty',
+    stock: 'Stock'
+  }
 }

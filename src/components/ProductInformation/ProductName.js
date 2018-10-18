@@ -1,21 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
 
-const styles = {
-  productName: {
-    textAlign: 'center',
-    fontSize: '25px',
-    marginBottom: '20px'
-  }
-}
+const StyledProductName = styled.div`
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+`
 
-function ProductName({ name, classes }) {
-  return <div className={classes.productName}>{name || '(no name)'}</div>
+function ProductName({ name }) {
+  return <StyledProductName>{name || '(no name)'}</StyledProductName>
 }
 
 ProductName.propTypes = {
-  classes: PropTypes.object.isRequired,
   name: PropTypes.string
 }
 
@@ -23,4 +20,4 @@ ProductName.defaultProps = {
   name: null
 }
 
-export default withStyles(styles)(ProductName)
+export default ProductName

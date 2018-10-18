@@ -50,20 +50,20 @@ class ProductSearchBox extends Component {
           {this.state.search ? (
             <Search
               searchProduct={this.props.searchProduct}
-              searchText={this.props.searchText}
+              searchText={this.props.text.search}
               handleSelectProduct={productId => {
                 this.props.handleSelectProduct(productId)
                 this.setState({ search: false })
               }}
             />
           ) : (
-            <Scan scanText={this.props.scanText} />
+            <Scan scanText={this.props.text.scan} />
           )}
         </div>
         {!this.props.handleSelectProduct ? null : (
           <StyledProductSuggestionToggle>
             {!this.state.search ? (
-              <Tooltip title={this.props.searchText}>
+              <Tooltip title={this.props.text.search}>
                 <IconButton
                   onClick={() => {
                     this.setState({ search: true })
@@ -90,8 +90,7 @@ class ProductSearchBox extends Component {
 
 ProductSearchBox.propTypes = {
   handleSelectProduct: PropTypes.func,
-  searchText: PropTypes.string.isRequired,
-  scanText: PropTypes.string.isRequired,
+  text: PropTypes.object.isRequired,
   searchProduct: PropTypes.func.isRequired
 }
 
