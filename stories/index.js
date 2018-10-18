@@ -19,8 +19,21 @@ storiesOf('Numpad', module)
     <Numpad
       handleChange={() => {}}
       handleBarcode={() => {}}
+      handleSelectProduct={product => {
+        console.log('product', product)
+      }}
       value=""
       disabled={false}
-      searchProduct={() => {}}
+      searchProduct={() =>
+        Promise.resolve({
+          data: {
+            starts_with: [
+              { id: 'asdf', name: 'asdf', barcode: 'asdf', custom_id: 'asdf' },
+              { id: 'qwer', name: 'qwer', barcode: 'qwer', custom_id: 'qwer' },
+              { id: 'zxcv', name: 'zxcv', barcode: 'zxcv', custom_id: 'zxcv' }
+            ]
+          }
+        })
+      }
     />
   ))

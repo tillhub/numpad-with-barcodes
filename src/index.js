@@ -57,6 +57,7 @@ export default class NumPad extends Component {
       searchText,
       scanText,
       handleChange,
+      handleSelectProduct,
       searchProduct
     } = this.props
     return (
@@ -71,6 +72,7 @@ export default class NumPad extends Component {
             <ProductSearchBox
               searchText={searchText}
               scanText={scanText}
+              handleSelectProduct={handleSelectProduct}
               searchProduct={searchProduct}
             />
           )}
@@ -102,6 +104,7 @@ NumPad.propTypes = {
   additionalProductInfo: PropTypes.node,
   additionalCounterInfo: PropTypes.node,
   handleBarcode: PropTypes.func.isRequired,
+  handleSelectProduct: PropTypes.func.isRequired,
   searchProduct: PropTypes.func.isRequired,
   product: PropTypes.object
 }

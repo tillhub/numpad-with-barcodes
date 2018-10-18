@@ -45,7 +45,7 @@ const styles = {
   }
 }
 
-class ProductSearch extends React.Component {
+class SearchProduct extends React.Component {
   state = {
     suggestions: [],
     value: ''
@@ -57,7 +57,7 @@ class ProductSearch extends React.Component {
 
   handleSuggestionSelected = (event, { suggestion }) => {
     this.setState({ value: '', suggestions: [] })
-    this.props.handleProduct(suggestion)
+    this.props.handleSelectProduct(suggestion)
   }
 
   loadSuggestions = value => {
@@ -207,11 +207,11 @@ class ProductSearch extends React.Component {
   }
 }
 
-ProductSearch.propTypes = {
+SearchProduct.propTypes = {
   classes: PropTypes.object.isRequired,
   searchProduct: PropTypes.func.isRequired,
-  handleProduct: PropTypes.func.isRequired,
+  handleSelectProduct: PropTypes.func.isRequired,
   searchText: PropTypes.string.isRequired
 }
 
-export default withStyles(styles)(ProductSearch)
+export default withStyles(styles)(SearchProduct)
