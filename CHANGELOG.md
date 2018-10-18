@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.2...v1.1.3) (2018-10-18)
+
+
+### Bug Fixes
+
+* **styles:** add min height and edit README ([e5d2806](https://github.com/tillhub/numpad-with-barcodes/commit/e5d2806))
+
 ## [1.1.2](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.1...v1.1.2) (2018-10-18)
 
 
