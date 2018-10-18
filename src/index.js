@@ -19,6 +19,7 @@ const StyledProductInformationContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: 200px;
 `
 
 const barcodeReader = makeBarcodeReader()
