@@ -1,3 +1,10 @@
+## [1.0.15](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.14...v1.0.15) (2018-10-18)
+
+
+### Bug Fixes
+
+* **props:** change prop to a more descriptive name and add docs ([9148e78](https://github.com/tillhub/numpad-with-barcodes/commit/9148e78))
+
 ## [1.0.14](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.13...v1.0.14) (2018-10-18)
 
 
