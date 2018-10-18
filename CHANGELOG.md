@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.3...v1.1.4) (2018-10-18)
+
+
+### Bug Fixes
+
+* **props:** fix typo and remove redundant elements ([4a529fa](https://github.com/tillhub/numpad-with-barcodes/commit/4a529fa))
+
 ## [1.1.3](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.2...v1.1.3) (2018-10-18)
 
 
