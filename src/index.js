@@ -14,7 +14,6 @@ const StyledWrapper = styled.div`
 `
 
 const StyledProductInformationContainer = styled.div`
-  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,7 +52,8 @@ export default class NumPad extends Component {
       additionalProductInfo,
       additionalCounterInfo,
       product,
-      value,
+      pickedQty,
+      orderedQty,
       searchText,
       scanText,
       handleChange,
@@ -65,7 +65,7 @@ export default class NumPad extends Component {
         <StyledProductInformationContainer>
           {product ? (
             <React.Fragment>
-              <ProductInformation product={product} />
+              <ProductInformation product={product} orderedQty={orderedQty} />
               {additionalProductInfo}
             </React.Fragment>
           ) : (
@@ -79,7 +79,7 @@ export default class NumPad extends Component {
         </StyledProductInformationContainer>
 
         <Keypad
-          startValue={value}
+          startValue={pickedQty}
           disabled={!product || disabled}
           decimalSeparator={decimalSeparator}
           withoutInputField={withoutInputField}
@@ -94,7 +94,8 @@ export default class NumPad extends Component {
 
 NumPad.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.string,
+  pickedQty: PropTypes.string,
+  orderedQty: PropTypes.number,
   disabled: PropTypes.bool,
   withoutInputField: PropTypes.bool,
   decimalSeparator: PropTypes.string,
@@ -111,7 +112,8 @@ NumPad.propTypes = {
 
 NumPad.defaultProps = {
   handleChange: () => {},
-  value: '',
+  pickedQty: '',
+  orderedQty: null,
   disabled: false,
   withoutInputField: false,
   decimalSeparator: '.',
