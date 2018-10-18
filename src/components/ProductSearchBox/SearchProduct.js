@@ -79,7 +79,7 @@ class ProductSearch extends React.Component {
     let matchedSuggestions = []
 
     this.props
-      .searchProducts(this.props.clientId, value)
+      .searchProduct(this.props.clientId, value)
       .then(({ results: { starts_with: items } }) => {
         matchedSuggestions = items.map(item => ({
           id: item.id,
@@ -226,7 +226,7 @@ class ProductSearch extends React.Component {
 
 ProductSearch.propTypes = {
   classes: PropTypes.object.isRequired,
-  searchProducts: PropTypes.func.isRequired,
+  searchProduct: PropTypes.func.isRequired,
   handleProduct: PropTypes.func.isRequired,
   searchText: PropTypes.string.isRequired
 }

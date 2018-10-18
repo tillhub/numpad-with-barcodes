@@ -21,6 +21,6 @@ storiesOf('Numpad', module)
       handleBarcode={() => {}}
       value=""
       disabled={false}
-      searchProducts={() => {}}
+      searchProduct={() => {}}
     />
   ))

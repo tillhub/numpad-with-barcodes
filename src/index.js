@@ -57,7 +57,7 @@ export default class NumPad extends Component {
       searchText,
       scanText,
       handleChange,
-      productsSearch
+      searchProduct
     } = this.props
     return (
       <StyledWrapper width={width}>
@@ -71,7 +71,7 @@ export default class NumPad extends Component {
             <ProductSearchBox
               searchText={searchText}
               scanText={scanText}
-              productsSearch={productsSearch}
+              searchProduct={searchProduct}
             />
           )}
         </StyledProductInformationContainer>
@@ -102,7 +102,7 @@ NumPad.propTypes = {
   additionalProductInfo: PropTypes.node,
   additionalCounterInfo: PropTypes.node,
   handleBarcode: PropTypes.func.isRequired,
-  productsSearch: PropTypes.func.isRequired,
+  searchProduct: PropTypes.func.isRequired,
   product: PropTypes.object
 }
 

@@ -49,7 +49,7 @@ class ProductSearchBox extends Component {
         <div style={{ userSelect: 'none' }}>
           {this.state.search ? (
             <Search
-              searchProducts={this.props.searchProducts}
+              searchProduct={this.props.searchProduct}
               searchText={this.props.searchText}
               handleProduct={productId => {
                 this.props.handleSearchProduct(productId)
@@ -92,7 +92,7 @@ ProductSearchBox.propTypes = {
   handleSearchProduct: PropTypes.func,
   searchText: PropTypes.string.isRequired,
   scanText: PropTypes.string.isRequired,
-  searchProducts: PropTypes.func.isRequired
+  searchProduct: PropTypes.func.isRequired
 }
 
 ProductSearchBox.defaultProps = {
