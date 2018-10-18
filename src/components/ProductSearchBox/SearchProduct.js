@@ -10,23 +10,7 @@ import FormControl from '@material-ui/core/FormControl'
 import Paper from '@material-ui/core/Paper'
 import MenuItem from '@material-ui/core/MenuItem'
 import { grey } from '@material-ui/core/colors'
-import styled from 'styled-components'
 // import createSitemapSuggestions from '../../i18n/sitemap-suggestions'
-
-const StyledFormControl = styled(FormControl)`
-  width: 40rem;
-  max-width: 80%;
-  background: transparent;
-`
-
-const StyledInput = styled(Input)`
-  color: ${grey[900]};
-  margin: 5px;
-  border: 0;
-  padding: unset;
-  background: transparent;
-  height: 6rem;
-`
 
 const styles = {
   container: {
@@ -46,6 +30,18 @@ const styles = {
     margin: 0,
     padding: 0,
     listStyleType: 'none'
+  },
+  formControl: {
+    width: '40rem',
+    maxWidth: '80%',
+    background: 'transparent'
+  },
+  input: {
+    color: grey[900],
+    margin: '5px',
+    border: 0,
+    padding: 'unset',
+    background: 'transparent'
   }
 }
 
@@ -80,7 +76,7 @@ class ProductSearch extends React.Component {
 
     this.props
       .searchProduct(value)
-      .then(({ results: { starts_with: items } }) => {
+      .then(({ data: { starts_with: items } }) => {
         matchedSuggestions = items.map(item => ({
           id: item.id,
           label: item.name,
@@ -163,23 +159,21 @@ class ProductSearch extends React.Component {
   }
 
   renderInput = inputProps => {
-    // const { intl } = this.props
+    const { classes } = this.props
     const { ...other } = inputProps
 
     return (
-      <StyledFormControl fullWidth>
-        <StyledInput
+      <FormControl fullWidth className={classes.formControl}>
+        <Input
           autoCapitalize="off"
           autoCorrect="off"
           autoComplete="off"
+          className={classes.input}
           disableUnderline
-          // placeholder={intl.formatMessage({
-          //   id: 'pages.dispositions.tooltips.search'
-          // })}
           placeholder={this.props.searchText}
           {...other}
         />
-      </StyledFormControl>
+      </FormControl>
     )
   }
 
