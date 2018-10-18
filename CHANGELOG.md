@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.0...v1.1.1) (2018-10-18)
+
+
+### Bug Fixes
+
+* **props:** add text prop for all display text options and change styles ([a4efa50](https://github.com/tillhub/numpad-with-barcodes/commit/a4efa50))
+* **proptypes:** fix typo ([b179ffd](https://github.com/tillhub/numpad-with-barcodes/commit/b179ffd))
+
 # [1.1.0](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.15...v1.1.0) (2018-10-18)
 
 
