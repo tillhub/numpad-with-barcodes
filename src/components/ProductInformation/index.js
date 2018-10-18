@@ -8,7 +8,7 @@ import OrderedQty from './OrderedQty'
 function ProductInformation({ product, orderedQty, text }) {
   return (
     <Fragment>
-      <EANBox product={product} />
+      <EANBox productText={text.product} product={product} />
       <ProductName name={product.name || product.product_name} />
       <CurrentStock
         stockText={text.stock}

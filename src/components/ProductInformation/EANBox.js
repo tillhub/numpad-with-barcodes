@@ -15,17 +15,18 @@ const StyledBarcode = styled.div`
   font-size: 40px;
 `
 
-function EANBox({ product }) {
+function EANBox({ product, productText }) {
   return (
     <StyledContainer>
-      <StyledTitle>product</StyledTitle>
+      <StyledTitle>{productText}</StyledTitle>
       <StyledBarcode>{product.barcode || 'NO BARCODE'}</StyledBarcode>
     </StyledContainer>
   )
 }
 
 EANBox.propTypes = {
-  product: PropTypes.object.isRequired
+  product: PropTypes.object.isRequired,
+  productText: PropTypes.string.isRequired
 }
 
 export default EANBox

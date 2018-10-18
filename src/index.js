@@ -126,6 +126,7 @@ NumPad.defaultProps = {
     search: 'Search',
     scan: 'Please start scanning...',
     orderedQty: 'Ordered Qty',
-    stock: 'Stock'
+    stock: 'Stock',
+    product: 'Current Item'
   }
 }
