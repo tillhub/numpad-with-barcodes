@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.12...v1.0.13) (2018-10-18)
+
+
+### Bug Fixes
+
+* **search:** get the right data from api and styles changes ([cc46846](https://github.com/tillhub/numpad-with-barcodes/commit/cc46846))
+
 ## [1.0.12](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.11...v1.0.12) (2018-10-18)
 
 
