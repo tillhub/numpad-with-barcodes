@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.15...v1.1.0) (2018-10-18)
+
+
+### Features
+
+* **product information:** add product information and qty props ([c5712f9](https://github.com/tillhub/numpad-with-barcodes/commit/c5712f9))
+
 ## [1.0.15](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.14...v1.0.15) (2018-10-18)
 
 
