@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.10...v1.0.11) (2018-10-18)
+
+
+### Bug Fixes
+
+* **searchProduct:** fix prop name ([ae7a7df](https://github.com/tillhub/numpad-with-barcodes/commit/ae7a7df))
+
 ## [1.0.10](https://github.com/tillhub/numpad-with-barcodes/compare/v1.0.9...v1.0.10) (2018-10-17)
 
 
