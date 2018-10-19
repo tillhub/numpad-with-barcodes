@@ -72,7 +72,6 @@
     "eslint-plugin-standard": "^3.1.0",
     "gh-pages": "^1.2.0",
     "just-debounce-it": "^1.1.0",
-    "parcel": "^1.10.3",
     "prettier": "^1.14.3",
     "prettier-eslint": "^8.8.2",
     "react": "^16.4.1",
@@ -88,9 +87,7 @@
     "rollup-plugin-url": "^1.4.0",
     "semantic-release": "^15.9.17",
     "styled-components": "^3.4.10",
-    "validate-commit-msg": "^2.14.0",
-    "webpack": "^4.21.0",
-    "webpack-cli": "^3.1.2"
+    "validate-commit-msg": "^2.14.0"
   },
   "files": [
     "dist",
