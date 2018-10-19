@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.7...v1.1.8) (2018-10-19)
+
+
+### Bug Fixes
+
+* **numpad:** update dep ([bdf75f4](https://github.com/tillhub/numpad-with-barcodes/commit/bdf75f4))
+
 ## [1.1.7](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.6...v1.1.7) (2018-10-19)
 
 
