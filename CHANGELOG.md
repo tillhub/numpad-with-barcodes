@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.4...v1.1.5) (2018-10-19)
+
+
+### Bug Fixes
+
+* **build:** switched back to rollup and modify mui imports ([bf04b8f](https://github.com/tillhub/numpad-with-barcodes/commit/bf04b8f))
+
 ## [1.1.4](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.3...v1.1.4) (2018-10-18)
 
 
