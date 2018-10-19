@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.6...v1.1.7) (2018-10-19)
+
+
+### Bug Fixes
+
+* **build:** set mui as peer dep ([0038213](https://github.com/tillhub/numpad-with-barcodes/commit/0038213))
+
 ## [1.1.6](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.5...v1.1.6) (2018-10-19)
 
 
