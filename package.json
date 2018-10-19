@@ -41,7 +41,7 @@
     "@storybook/addon-links": "^4.0.0-alpha.24",
     "@storybook/addons": "^4.0.0-alpha.24",
     "@storybook/react": "^4.0.0-alpha.24",
-    "@tillhub/numpad": "^2.1.4",
+    "@tillhub/numpad": "^2.2.0",
     "autosuggest-highlight": "^3.1.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
