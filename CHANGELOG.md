@@ -1,3 +1,11 @@
+## [1.1.6](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.5...v1.1.6) (2018-10-19)
+
+
+### Bug Fixes
+
+* **build:** add webpack for build config ([635e067](https://github.com/tillhub/numpad-with-barcodes/commit/635e067))
+* **package.json:** change entry file ([6a43b16](https://github.com/tillhub/numpad-with-barcodes/commit/6a43b16))
+
 ## [1.1.5](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.4...v1.1.5) (2018-10-19)
 
 
