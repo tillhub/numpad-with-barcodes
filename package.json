@@ -1,7 +1,7 @@
 {
   "name": "@tillhub/numpad-with-barcodes",
   "private": false,
-  "version": "1.1.6",
+  "version": "1.1.5",
   "description": "Numpad that detects input from barcode scanners",
   "author": "qtotuan",
   "license": "MIT",
@@ -14,8 +14,8 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "build": "rimraf dist && webpack --mode=production",
-    "start": "parcel src/index.js",
+    "build": "rimraf dist && rollup -c",
+    "start": "rollup -c -w",
     "prepare": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build",
@@ -26,6 +26,7 @@
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
+    "@material-ui/core": "^3.2.0",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },
