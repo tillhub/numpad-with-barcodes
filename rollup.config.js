@@ -18,6 +18,7 @@ export default {
       sourcemap: true
     }
   ],
+  external: ['styled-components', '@material-ui/core'],
   plugins: [
     external(),
     url(),

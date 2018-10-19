@@ -4,12 +4,12 @@ import debounce from 'just-debounce-it'
 import Autosuggest from 'react-autosuggest'
 import match from 'autosuggest-highlight/match'
 import parse from 'autosuggest-highlight/parse'
-import { withStyles } from '@material-ui/core/styles'
+import withStyles from '@material-ui/core/styles/withStyles'
 import Input from '@material-ui/core/Input'
 import FormControl from '@material-ui/core/FormControl'
 import Paper from '@material-ui/core/Paper'
 import MenuItem from '@material-ui/core/MenuItem'
-import { grey } from '@material-ui/core/colors'
+import grey from '@material-ui/core/colors/grey'
 
 const styles = {
   container: {
