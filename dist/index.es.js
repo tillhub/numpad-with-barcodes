@@ -1,20 +1,15 @@
-'use strict';
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var React = require('react');
-var React__default = _interopDefault(React);
-var PropTypes = _interopDefault(require('prop-types'));
-var styled = _interopDefault(require('styled-components'));
-var SvgIcon = _interopDefault(require('@material-ui/core/SvgIcon'));
-var withStyles = _interopDefault(require('@material-ui/core/styles/withStyles'));
-var Input = _interopDefault(require('@material-ui/core/Input'));
-var FormControl = _interopDefault(require('@material-ui/core/FormControl'));
-var Paper = _interopDefault(require('@material-ui/core/Paper'));
-var MenuItem = _interopDefault(require('@material-ui/core/MenuItem'));
-var grey = _interopDefault(require('@material-ui/core/colors/grey'));
-var core = require('@material-ui/core');
-var Tooltip = _interopDefault(require('@material-ui/core/Tooltip'));
+import React, { Fragment, Component } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import withStyles from '@material-ui/core/styles/withStyles';
+import Input from '@material-ui/core/Input';
+import FormControl from '@material-ui/core/FormControl';
+import Paper from '@material-ui/core/Paper';
+import MenuItem from '@material-ui/core/MenuItem';
+import grey from '@material-ui/core/colors/grey';
+import { IconButton } from '@material-ui/core';
+import Tooltip from '@material-ui/core/Tooltip';
 
 function unwrapExports (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
@@ -42,8 +37,8 @@ var _has = function (it, key) {
 };
 
 var _core = createCommonjsModule(function (module) {
-var core$$1 = module.exports = { version: '2.5.7' };
-if (typeof __e == 'number') __e = core$$1; // eslint-disable-line no-undef
+var core = module.exports = { version: '2.5.7' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 });
 var _core_1 = _core.version;
 
@@ -1222,7 +1217,7 @@ var _inherits = unwrapExports(inherits);
 function _interopDefault$1 (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 
-var React__default$$1 = _interopDefault$1(React__default);
+var React__default = _interopDefault$1(React);
 var PropTypes$1 = _interopDefault$1(PropTypes);
 
 var styled__default = _interopDefault$1(styled);
@@ -1306,7 +1301,7 @@ function Button(_ref2) {
     clickHandler(text);
   }
 
-  return React__default$$1.createElement(
+  return React__default.createElement(
     StyledButton,
     {
       className: className,
@@ -1338,7 +1333,7 @@ function Buttons(_ref) {
       disabled = _ref.disabled;
 
   return buttonValues.map(function (value) {
-    return React__default$$1.createElement(
+    return React__default.createElement(
       Button,
       {
         text: value,
@@ -1371,20 +1366,20 @@ function Keypad(_ref) {
       disabled = _ref.disabled,
       decimalSeparator = _ref.decimalSeparator;
 
-  return React__default$$1.createElement(
+  return React__default.createElement(
     StyledKeypad,
     null,
-    React__default$$1.createElement(
+    React__default.createElement(
       StyledBackButton,
       {
         text: 'back',
         clickHandler: clickHandler,
         disabled: disabled
       },
-      React__default$$1.createElement('img', { src: backspaceIcon })
+      React__default.createElement('img', { src: backspaceIcon })
     ),
-    React__default$$1.createElement(Buttons, { clickHandler: clickHandler, disabled: disabled }),
-    React__default$$1.createElement(
+    React__default.createElement(Buttons, { clickHandler: clickHandler, disabled: disabled }),
+    React__default.createElement(
       StyledZeroButton,
       {
         text: '0',
@@ -1393,7 +1388,7 @@ function Keypad(_ref) {
       },
       '0'
     ),
-    React__default$$1.createElement(
+    React__default.createElement(
       Button,
       {
         text: decimalSeparator,
@@ -1508,10 +1503,10 @@ var NumPad = function (_Component) {
       var input = this.state.input;
 
 
-      return React__default$$1.createElement(
+      return React__default.createElement(
         StyledWrapper,
         { width: width },
-        React__default$$1.createElement(StyledInput, {
+        React__default.createElement(StyledInput, {
           'data-testid': 'input',
           value: input || '0',
           onChange: function onChange(e) {
@@ -1520,7 +1515,7 @@ var NumPad = function (_Component) {
           disabled: disabled || withoutInputField
         }),
         children,
-        React__default$$1.createElement(Keypad, {
+        React__default.createElement(Keypad, {
           disabled: disabled,
           clickHandler: this.handleKeypadPress,
           decimalSeparator: decimalSeparator
@@ -1529,7 +1524,7 @@ var NumPad = function (_Component) {
     }
   }]);
   return NumPad;
-}(React__default.Component);
+}(React.Component);
 
 
 NumPad.propTypes = {
@@ -1649,7 +1644,7 @@ function CurrentStock(_ref) {
   var stock = _ref.stock,
       stockText = _ref.stockText;
 
-  return React__default.createElement(
+  return React.createElement(
     StyledCurrentStock,
     null,
     stockText,
@@ -1686,15 +1681,15 @@ function EANBox(_ref) {
   var product = _ref.product,
       productText = _ref.productText;
 
-  return React__default.createElement(
+  return React.createElement(
     StyledContainer,
     null,
-    React__default.createElement(
+    React.createElement(
       StyledTitle,
       null,
       productText
     ),
-    React__default.createElement(
+    React.createElement(
       StyledBarcode,
       null,
       product.barcode || 'NO BARCODE'
@@ -1715,7 +1710,7 @@ var StyledProductName = styled.div.withConfig({
 function ProductName(_ref) {
   var name = _ref.name;
 
-  return React__default.createElement(
+  return React.createElement(
     StyledProductName,
     null,
     name || '(no name)'
@@ -1739,7 +1734,7 @@ function OrderedQty(_ref) {
   var qty = _ref.qty,
       orderedQtyText = _ref.orderedQtyText;
 
-  return React__default.createElement(
+  return React.createElement(
     StyledOrderedQty,
     null,
     orderedQtyText,
@@ -1762,16 +1757,16 @@ function ProductInformation(_ref) {
       orderedQty = _ref.orderedQty,
       text = _ref.text;
 
-  return React__default.createElement(
-    React.Fragment,
+  return React.createElement(
+    Fragment,
     null,
-    React__default.createElement(EANBox, { productText: text.product, product: product }),
-    React__default.createElement(ProductName, { name: product.name || product.product_name }),
-    React__default.createElement(CurrentStock, {
+    React.createElement(EANBox, { productText: text.product, product: product }),
+    React.createElement(ProductName, { name: product.name || product.product_name }),
+    React.createElement(CurrentStock, {
       stockText: text.stock,
       stock: product && product.stock && product.stock.qty
     }),
-    React__default.createElement(OrderedQty, { orderedQtyText: text.orderedQty, qty: orderedQty })
+    React.createElement(OrderedQty, { orderedQtyText: text.orderedQty, qty: orderedQty })
   );
 }
 
@@ -1846,16 +1841,16 @@ var getDisplayName_1 = createCommonjsModule(function (module, exports) {
 exports.__esModule = true;
 exports.default = void 0;
 
-var getDisplayName = function getDisplayName(Component) {
-  if (typeof Component === 'string') {
-    return Component;
+var getDisplayName = function getDisplayName(Component$$1) {
+  if (typeof Component$$1 === 'string') {
+    return Component$$1;
   }
 
-  if (!Component) {
+  if (!Component$$1) {
     return undefined;
   }
 
-  return Component.displayName || Component.name || 'Component';
+  return Component$$1.displayName || Component$$1.name || 'Component';
 };
 
 var _default = getDisplayName;
@@ -1900,7 +1895,7 @@ var _wrapDisplayName = interopRequireDefault(wrapDisplayName_1);
 
 var shouldUpdate = function shouldUpdate(test) {
   return function (BaseComponent) {
-    var factory = (0, React__default.createFactory)(BaseComponent);
+    var factory = (0, React.createFactory)(BaseComponent);
 
     var ShouldUpdate =
     /*#__PURE__*/
@@ -1922,7 +1917,7 @@ var shouldUpdate = function shouldUpdate(test) {
       };
 
       return ShouldUpdate;
-    }(React__default.Component);
+    }(React.Component);
 
     if (process.env.NODE_ENV !== 'production') {
       return (0, _setDisplayName.default)((0, _wrapDisplayName.default)(BaseComponent, 'shouldUpdate'))(ShouldUpdate);
@@ -2057,7 +2052,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = interopRequireDefault(React__default);
+var _react = interopRequireDefault(React);
 
 var _pure = interopRequireDefault(pure_1);
 
@@ -2088,7 +2083,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = interopRequireDefault(React__default);
+var _react = interopRequireDefault(React);
 
 var _createSvgIcon = interopRequireDefault(createSvgIcon_1);
 
@@ -2113,7 +2108,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = interopRequireDefault(React__default);
+var _react = interopRequireDefault(React);
 
 var _createSvgIcon = interopRequireDefault(createSvgIcon_1);
 
@@ -2678,7 +2673,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React__default);
+var _react2 = _interopRequireDefault(React);
 
 
 
@@ -2734,7 +2729,7 @@ var SectionTitle = function (_Component) {
   }]);
 
   return SectionTitle;
-}(React__default.Component);
+}(React.Component);
 
 SectionTitle.propTypes = {
   section: _propTypes2.default.any.isRequired,
@@ -2759,7 +2754,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React__default);
+var _react2 = _interopRequireDefault(React);
 
 
 
@@ -2871,7 +2866,7 @@ var Item = function (_Component) {
   }]);
 
   return Item;
-}(React__default.Component);
+}(React.Component);
 
 Item.propTypes = {
   sectionIndex: _propTypes2.default.number,
@@ -2902,7 +2897,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React__default);
+var _react2 = _interopRequireDefault(React);
 
 
 
@@ -3001,7 +2996,7 @@ var ItemsList = function (_Component) {
   }]);
 
   return ItemsList;
-}(React__default.Component);
+}(React.Component);
 
 ItemsList.propTypes = {
   items: _propTypes2.default.array.isRequired,
@@ -3037,7 +3032,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React__default);
+var _react2 = _interopRequireDefault(React);
 
 
 
@@ -3417,7 +3412,7 @@ var Autowhatever = function (_Component) {
   }]);
 
   return Autowhatever;
-}(React__default.Component);
+}(React.Component);
 
 Autowhatever.propTypes = {
   id: _propTypes2.default.string, // Used in aria-* attributes. If multiple Autowhatever's are rendered on a page, they must have unique ids.
@@ -3541,7 +3536,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React__default);
+var _react2 = _interopRequireDefault(React);
 
 
 
@@ -4063,7 +4058,7 @@ var Autosuggest = function (_Component) {
   }]);
 
   return Autosuggest;
-}(React__default.Component);
+}(React.Component);
 
 Autosuggest.propTypes = {
   suggestions: _propTypes2.default.array.isRequired,
@@ -4691,10 +4686,10 @@ var SearchProduct = function (_React$Component) {
 
       var other = _objectWithoutProperties(inputProps, []);
 
-      return React__default.createElement(
+      return React.createElement(
         FormControl,
         { fullWidth: true, className: classes.formControl },
-        React__default.createElement(Input, _extends$1({
+        React.createElement(Input, _extends$1({
           autoCapitalize: 'off',
           autoCorrect: 'off',
           autoComplete: 'off',
@@ -4724,7 +4719,7 @@ var SearchProduct = function (_React$Component) {
           children = options.children;
 
 
-      return React__default.createElement(
+      return React.createElement(
         Paper,
         _extends$1({}, containerProps, { square: true, style: { zIndex: 100 } }),
         children
@@ -4739,24 +4734,24 @@ var SearchProduct = function (_React$Component) {
       var matches = match(suggestion.label, query);
       var parts = parse(suggestion.label, matches);
 
-      return React__default.createElement(
+      return React.createElement(
         'div',
         {
           // to={{ pathname: suggestion.route }}
           style: { textDecoration: 'unset' }
         },
-        React__default.createElement(
+        React.createElement(
           MenuItem,
           { selected: isHighlighted, component: 'div' },
-          React__default.createElement(
+          React.createElement(
             'div',
             null,
             parts.map(function (part, index) {
-              return part.highlight ? React__default.createElement(
+              return part.highlight ? React.createElement(
                 'strong',
                 { key: String(index), style: { fontWeight: 800 } },
                 part.text
-              ) : React__default.createElement(
+              ) : React.createElement(
                 'span',
                 { key: String(index), style: { fontWeight: 300 } },
                 part.text
@@ -4776,7 +4771,7 @@ var SearchProduct = function (_React$Component) {
 
       var allSuggestions = [].concat(_toConsumableArray(this.state.suggestions)).slice(0, 10);
 
-      return React__default.createElement(dist$3, {
+      return React.createElement(dist$3, {
         theme: {
           container: classes.container,
           suggestionsContainerOpen: classes.suggestionsContainerOpen,
@@ -4811,7 +4806,7 @@ var SearchProduct = function (_React$Component) {
   }]);
 
   return SearchProduct;
-}(React__default.Component);
+}(React.Component);
 
 SearchProduct.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -4825,7 +4820,7 @@ var Search$1 = withStyles(styles)(SearchProduct);
 function Scan(_ref) {
   var scanText = _ref.scanText;
 
-  return React__default.createElement(
+  return React.createElement(
     'div',
     null,
     scanText
@@ -4873,44 +4868,44 @@ var ProductSearchBox = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return React__default.createElement(
+      return React.createElement(
         StyledContainer$1,
         { isSearch: this.state.search },
-        React__default.createElement(
+        React.createElement(
           'div',
           { style: { userSelect: 'none' } },
-          this.state.search ? React__default.createElement(Search$1, {
+          this.state.search ? React.createElement(Search$1, {
             searchProduct: this.props.searchProduct,
             searchText: this.props.text.search,
             handleSelectProduct: function handleSelectProduct(productId) {
               _this2.props.handleSelectProduct(productId);
               _this2.setState({ search: false });
             }
-          }) : React__default.createElement(Scan, { scanText: this.props.text.scan })
+          }) : React.createElement(Scan, { scanText: this.props.text.scan })
         ),
-        !this.props.handleSelectProduct ? null : React__default.createElement(
+        !this.props.handleSelectProduct ? null : React.createElement(
           StyledProductSuggestionToggle,
           null,
-          !this.state.search ? React__default.createElement(
+          !this.state.search ? React.createElement(
             Tooltip,
             { title: this.props.text.search },
-            React__default.createElement(
-              core.IconButton,
+            React.createElement(
+              IconButton,
               {
                 onClick: function onClick() {
                   _this2.setState({ search: true });
                 }
               },
-              React__default.createElement(IconSearch, { style: { fontSize: 36 } })
+              React.createElement(IconSearch, { style: { fontSize: 36 } })
             )
-          ) : React__default.createElement(
-            core.IconButton,
+          ) : React.createElement(
+            IconButton,
             {
               onClick: function onClick() {
                 _this2.setState({ search: false });
               }
             },
-            React__default.createElement(IconCancel, { style: { fontSize: 36 } })
+            React.createElement(IconCancel, { style: { fontSize: 36 } })
           )
         )
       );
@@ -4918,7 +4913,7 @@ var ProductSearchBox = function (_Component) {
   }]);
 
   return ProductSearchBox;
-}(React.Component);
+}(Component);
 
 ProductSearchBox.propTypes = {
   handleSelectProduct: PropTypes.func,
@@ -4995,28 +4990,28 @@ var NumPad$1 = function (_Component) {
           handleSelectProduct = _props.handleSelectProduct,
           searchProduct = _props.searchProduct;
 
-      return React__default.createElement(
+      return React.createElement(
         StyledWrapper$1,
         { width: width },
-        React__default.createElement(
+        React.createElement(
           StyledProductInformationContainer,
           null,
-          product ? React__default.createElement(
-            React__default.Fragment,
+          product ? React.createElement(
+            React.Fragment,
             null,
-            React__default.createElement(ProductInformation, {
+            React.createElement(ProductInformation, {
               product: product,
               orderedQty: orderedQty,
               text: text
             }),
             additionalProductInfo
-          ) : React__default.createElement(ProductSearchBox, {
+          ) : React.createElement(ProductSearchBox, {
             text: text,
             handleSelectProduct: handleSelectProduct,
             searchProduct: searchProduct
           })
         ),
-        React__default.createElement(
+        React.createElement(
           index_cjs,
           {
             startValue: pickedQty,
@@ -5032,7 +5027,7 @@ var NumPad$1 = function (_Component) {
   }]);
 
   return NumPad;
-}(React.Component);
+}(Component);
 
 
 NumPad$1.propTypes = {
@@ -5072,5 +5067,5 @@ NumPad$1.defaultProps = {
   }
 };
 
-module.exports = NumPad$1;
-//# sourceMappingURL=index.js.map
+export default NumPad$1;
+//# sourceMappingURL=index.es.js.map

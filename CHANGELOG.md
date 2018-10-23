@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.8...v1.2.0) (2018-10-23)
+
+
+### Features
+
+* **numpad:** update numpad dep ([a47964c](https://github.com/tillhub/numpad-with-barcodes/commit/a47964c))
+
 ## [1.1.8](https://github.com/tillhub/numpad-with-barcodes/compare/v1.1.7...v1.1.8) (2018-10-19)
 
 
